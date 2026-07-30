@@ -451,7 +451,13 @@
     "todowrite": "allow",
 
     "skill": {
-      "*": "allow"
+      "*": "allow",
+      "code-review": "ask",
+      "grill-me": "ask",
+      "implement": "ask",
+      "setup-matt-pocock-skills": "ask",
+      "to-spec": "ask",
+      "to-tickets": "ask"
     },
 
     "mcp_*": "ask"
