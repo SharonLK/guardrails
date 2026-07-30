@@ -1,0 +1,521 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "plan",
+  "subagent_depth": 1,
+
+  "share": "disabled",
+  "autoupdate": false,
+  "snapshot": true,
+
+  "instructions": [
+    "AGENTS.md"
+  ],
+
+  "plugin": [],
+
+  "mcp": {},
+
+  "command": {},
+
+  "agent": {
+    "plan": {
+      "permission": {
+        "edit": "deny",
+        "bash": {
+          "*": "ask",
+
+          "pwd": "allow",
+          "Get-Location": "allow",
+
+          "dir": "allow",
+          "dir *": "allow",
+          "ls": "allow",
+          "ls *": "allow",
+          "Get-ChildItem": "allow",
+          "Get-ChildItem *": "allow",
+
+          "git status": "allow",
+          "git status *": "allow",
+          "git diff": "allow",
+          "git diff *": "allow",
+          "git log": "allow",
+          "git log *": "allow",
+          "git show": "allow",
+          "git show *": "allow",
+          "git branch": "allow",
+          "git branch --show-current": "allow",
+          "git remote": "allow",
+          "git remote -v": "allow",
+          "git rev-parse *": "allow",
+          "git ls-files": "allow",
+          "git ls-files *": "allow",
+          "git ls-tree *": "allow",
+          "git grep *": "allow",
+          "git blame *": "allow"
+        }
+      }
+    },
+
+    "build": {
+      "permission": {
+        "edit": "ask",
+        "bash": {
+          "*": "ask"
+        }
+      }
+    }
+  },
+
+  "permission": {
+    "*": "ask",
+
+    "read": {
+      "*": "allow",
+
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.env.example": "allow",
+
+      "**/.env": "deny",
+      "**/.env.*": "deny",
+      "**/.env.example": "allow",
+
+      "**/secrets/**": "deny",
+      "**/.secrets/**": "deny",
+      "**/credentials/**": "deny",
+
+      "**/*.pem": "deny",
+      "**/*.key": "deny",
+      "**/*.pfx": "deny",
+      "**/*.p12": "deny",
+
+      "**/id_rsa": "deny",
+      "**/id_ed25519": "deny",
+
+      "**/.kube/config": "deny",
+
+      "**/.npmrc": "deny",
+      "**/.pypirc": "deny",
+      "**/NuGet.Config": "deny",
+
+      "**/AppData/Roaming/Microsoft/Credentials/**": "deny",
+      "**/AppData/Local/Microsoft/Credentials/**": "deny"
+    },
+
+    "edit": {
+      "*": "ask",
+
+      ".git/**": "deny",
+      "**/.git/**": "deny",
+
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "**/.env": "deny",
+      "**/.env.*": "deny",
+
+      "**/secrets/**": "deny",
+      "**/.secrets/**": "deny",
+      "**/credentials/**": "deny",
+
+      "**/*.pem": "deny",
+      "**/*.key": "deny",
+      "**/*.pfx": "deny",
+      "**/*.p12": "deny",
+
+      "**/id_rsa": "deny",
+      "**/id_ed25519": "deny"
+    },
+
+    "glob": "allow",
+    "grep": "allow",
+    "list": "allow",
+    "lsp": "allow",
+
+    "external_directory": {
+      "*": "deny"
+    },
+
+    "bash": {
+      "*": "ask",
+
+      "pwd": "allow",
+      "Get-Location": "allow",
+
+      "dir": "allow",
+      "dir *": "allow",
+      "ls": "allow",
+      "ls *": "allow",
+      "Get-ChildItem": "allow",
+      "Get-ChildItem *": "allow",
+
+      "tree": "allow",
+      "tree *": "allow",
+
+      "git status": "allow",
+      "git status *": "allow",
+
+      "git diff": "allow",
+      "git diff *": "allow",
+
+      "git log": "allow",
+      "git log *": "allow",
+
+      "git show": "allow",
+      "git show *": "allow",
+
+      "git branch": "allow",
+      "git branch --show-current": "allow",
+
+      "git remote": "allow",
+      "git remote -v": "allow",
+
+      "git rev-parse *": "allow",
+
+      "git ls-files": "allow",
+      "git ls-files *": "allow",
+
+      "git ls-tree *": "allow",
+      "git grep *": "allow",
+      "git blame *": "allow",
+
+      "git add": "ask",
+      "git add *": "ask",
+
+      "git commit": "ask",
+      "git commit *": "ask",
+
+      "git fetch": "ask",
+      "git fetch *": "ask",
+
+      "git stash": "ask",
+      "git stash *": "ask",
+
+      "git switch": "ask",
+      "git switch *": "ask",
+
+      "git checkout": "ask",
+      "git checkout *": "ask",
+
+      "git restore": "ask",
+      "git restore *": "ask",
+
+      "git pull": "ask",
+      "git pull *": "ask",
+
+      "git push": "ask",
+      "git push *": "ask",
+
+      "git reset": "deny",
+      "git reset *": "deny",
+
+      "git clean": "deny",
+      "git clean *": "deny",
+
+      "git rebase": "deny",
+      "git rebase *": "deny",
+
+      "git merge": "deny",
+      "git merge *": "deny",
+
+      "git cherry-pick": "deny",
+      "git cherry-pick *": "deny",
+
+      "git revert": "deny",
+      "git revert *": "deny",
+
+      "git tag": "deny",
+      "git tag *": "deny",
+
+      "git branch -d *": "deny",
+      "git branch -D *": "deny",
+
+      "git remote add *": "ask",
+      "git remote remove *": "ask",
+      "git remote rename *": "ask",
+      "git remote set-url *": "ask",
+
+      "git config *": "deny",
+
+      "Remove-Item": "ask",
+      "Remove-Item *": "ask",
+
+      "Clear-Content": "deny",
+      "Clear-Content *": "deny",
+
+      "del": "deny",
+      "del *": "deny",
+
+      "erase": "deny",
+      "erase *": "deny",
+
+      "rd": "deny",
+      "rd *": "deny",
+
+      "rmdir": "ask",
+      "rmdir *": "ask",
+
+      "cmd /c del *": "deny",
+      "cmd.exe /c del *": "deny",
+
+      "cmd /c rd *": "deny",
+      "cmd.exe /c rd *": "deny",
+
+      "cmd /c rmdir *": "ask",
+      "cmd.exe /c rmdir *": "ask",
+
+      "Move-Item": "ask",
+      "Move-Item *": "ask",
+
+      "Rename-Item": "ask",
+      "Rename-Item *": "ask",
+
+      "Copy-Item": "ask",
+      "Copy-Item *": "ask",
+
+      "New-Item": "ask",
+      "New-Item *": "ask",
+
+      "Set-Content": "ask",
+      "Set-Content *": "ask",
+
+      "Add-Content": "ask",
+      "Add-Content *": "ask",
+
+      "Out-File": "ask",
+      "Out-File *": "ask",
+
+      "move": "ask",
+      "move *": "ask",
+
+      "copy": "ask",
+      "copy *": "ask",
+
+      "powershell -EncodedCommand *": "deny",
+      "powershell -enc *": "deny",
+      "powershell.exe -EncodedCommand *": "deny",
+      "powershell.exe -enc *": "deny",
+
+      "pwsh -EncodedCommand *": "deny",
+      "pwsh -enc *": "deny",
+
+      "Start-Process * -Verb RunAs*": "deny",
+
+      "runas": "deny",
+      "runas *": "deny",
+
+      "reg": "deny",
+      "reg *": "deny",
+
+      "reg.exe": "deny",
+      "reg.exe *": "deny",
+
+      "New-ItemProperty *": "deny",
+      "Set-ItemProperty *": "deny",
+      "Remove-ItemProperty *": "deny",
+
+      "sc": "deny",
+      "sc *": "deny",
+
+      "sc.exe": "deny",
+      "sc.exe *": "deny",
+
+      "New-Service *": "deny",
+      "Set-Service *": "deny",
+      "Start-Service *": "deny",
+      "Stop-Service *": "deny",
+      "Restart-Service *": "deny",
+      "Remove-Service *": "deny",
+
+      "schtasks": "deny",
+      "schtasks *": "deny",
+
+      "Register-ScheduledTask *": "deny",
+      "Unregister-ScheduledTask *": "deny",
+      "Start-ScheduledTask *": "deny",
+
+      "net user *": "deny",
+      "net localgroup *": "deny",
+      "net share *": "deny",
+
+      "New-LocalUser *": "deny",
+      "Remove-LocalUser *": "deny",
+      "Add-LocalGroupMember *": "deny",
+      "Remove-LocalGroupMember *": "deny",
+
+      "netsh *": "deny",
+
+      "New-NetFirewallRule *": "deny",
+      "Set-NetFirewallRule *": "deny",
+      "Remove-NetFirewallRule *": "deny",
+
+      "shutdown": "deny",
+      "shutdown *": "deny",
+
+      "shutdown.exe": "deny",
+      "shutdown.exe *": "deny",
+
+      "Restart-Computer": "deny",
+      "Restart-Computer *": "deny",
+
+      "Stop-Computer": "deny",
+      "Stop-Computer *": "deny",
+
+      "diskpart": "deny",
+      "diskpart *": "deny",
+
+      "Clear-Disk *": "deny",
+      "Initialize-Disk *": "deny",
+      "Format-Volume *": "deny",
+      "Remove-Partition *": "deny",
+
+      "takeown *": "deny",
+      "icacls *": "deny",
+      "Set-Acl *": "deny",
+
+      "winget install *": "ask",
+      "winget upgrade *": "ask",
+      "winget uninstall *": "deny",
+
+      "choco install *": "ask",
+      "choco upgrade *": "ask",
+      "choco uninstall *": "deny",
+
+      "scoop install *": "ask",
+      "scoop update *": "ask",
+      "scoop uninstall *": "deny",
+
+      "npm install *": "ask",
+      "npm uninstall *": "ask",
+      "npm exec *": "ask",
+      "npm publish *": "deny",
+
+      "npx *": "ask",
+
+      "pnpm install *": "ask",
+      "pnpm add *": "ask",
+      "pnpm remove *": "ask",
+      "pnpm dlx *": "ask",
+      "pnpm publish *": "deny",
+
+      "yarn install *": "ask",
+      "yarn add *": "ask",
+      "yarn remove *": "ask",
+      "yarn publish *": "deny",
+
+      "pip install *": "ask",
+      "pip uninstall *": "ask",
+
+      "python -m pip install *": "ask",
+      "python -m pip uninstall *": "ask",
+
+      "py -m pip install *": "ask",
+      "py -m pip uninstall *": "ask",
+
+      "pypi -m pip install *": "ask",
+      "pypi -m pip uninstall *": "ask",
+
+      "dotnet add package *": "ask",
+      "dotnet remove package *": "ask",
+
+      "Install-Package *": "ask",
+      "Uninstall-Package *": "deny",
+
+      "Invoke-WebRequest *": "ask",
+      "Invoke-RestMethod *": "ask",
+
+      "curl *": "ask",
+      "curl.exe *": "ask",
+
+      "docker build *": "ask",
+      "docker run *": "ask",
+      "docker exec *": "ask",
+      "docker compose up *": "ask",
+
+      "docker push *": "deny",
+      "docker system prune *": "deny",
+      "docker volume rm *": "deny",
+
+      "kubectl get *": "allow",
+      "kubectl describe *": "allow",
+      "kubectl logs *": "allow",
+
+      "kubectl apply *": "deny",
+      "kubectl create *": "deny",
+      "kubectl delete *": "deny",
+      "kubectl edit *": "deny",
+      "kubectl exec *": "deny",
+      "kubectl patch *": "deny",
+      "kubectl replace *": "deny",
+      "kubectl scale *": "deny",
+      "kubectl set *": "deny",
+
+      "kubectl port-forward *": "ask"
+    },
+
+    "webfetch": "ask",
+    "websearch": "ask",
+
+    "task": "ask",
+    "todowrite": "allow",
+
+    "skill": {
+      "*": "allow"
+    },
+
+    "mcp_*": "ask"
+  },
+
+  "watcher": {
+    "ignore": [
+      ".git/**",
+      ".idea/**",
+      ".vs/**",
+      ".vscode/**",
+
+      "node_modules/**",
+      "packages/**/node_modules/**",
+
+      "bin/**",
+      "obj/**",
+
+      "dist/**",
+      "build/**",
+      "out/**",
+      "target/**",
+
+      "coverage/**",
+      ".coverage/**",
+
+      ".next/**",
+      ".nuxt/**",
+
+      "__pycache__/**",
+      ".pytest_cache/**",
+      ".mypy_cache/**",
+      ".venv/**",
+      "venv/**",
+
+      "*.log",
+      "*.tmp",
+
+      "*.dll",
+      "*.exe",
+      "*.pdb",
+
+      "*.zip",
+      "*.7z",
+      "*.tar",
+      "*.gz"
+    ]
+  },
+
+  "compaction": {
+    "auto": true,
+    "prune": true,
+    "reserved": 15000
+  },
+
+  "formatter": false,
+
+  "lsp": true
+}
