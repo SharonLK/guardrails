@@ -1,3 +1,3 @@
 # guardrails
 
-Test repository for guardrails project.
+Standard opencode configuration settings.
