@@ -1,9 +1,14 @@
+# Local issue tracker — specs/tickets from to-spec and to-tickets skills
 .scratch/
 
+# OS-generated files
 .DS_Store
 Thumbs.db
+
+# Logs and temp files
 *.log
 *.tmp
 
+# IDE/editor directories
 .idea/
 .vscode/
