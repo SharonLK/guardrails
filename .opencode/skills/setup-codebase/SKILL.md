@@ -1,9 +1,9 @@
 ---
-name: setup-matt-pocock-skills
+name: setup-codebase
 description: Configure this repo for the engineering skills — set up its issue tracker and domain doc layout. Run once before first use of the other engineering skills.
 ---
 
-# Setup Matt Pocock's Skills
+# Setup Codebase
 
 Scaffold the per-repo configuration that the engineering skills assume:
 
